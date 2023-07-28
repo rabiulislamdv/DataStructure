@@ -35,7 +35,19 @@ void printList(Node * head)
         temp= temp->next;
     }
 }
-
+// head a insert korte
+void insertAtHead( Node * &head, int val)
+{
+    Node* newNode = new Node(val);
+    if( head == NULL)
+    {
+         head = newNode;
+         return;
+    }
+    Node * temp = head;
+    head = newNode;
+    newNode->next = temp;
+}
 int main()
 {
 
@@ -44,6 +56,10 @@ int main()
     insertAtTail(head,20);
     insertAtTail(head,30);
     insertAtTail(head,40);
+
+    insertAtHead(head,60);
+    insertAtHead(head,70);
+
     printList(head);
     return 0;
 }
